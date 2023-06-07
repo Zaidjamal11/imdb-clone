@@ -2,7 +2,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import { Box } from '@mui/material';
+import { Box , styled } from '@mui/material';
 
 
 const responsive = {
@@ -21,17 +21,31 @@ const responsive = {
     }
   };
 
+
+
+  const StyledBanner = styled('img')({
+    width: '100%'
+  })
+
+
 const Banner = ({ movies}) => {
     return (
-        <Box>
+        <Box style={{width: '65%'}}>
             <Carousel
-            
+            swipeable={false}
+            draggable={false}
+            showDots={true}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            keyBoardControl={true}
+            slidesToSlide={1}
             responsive={responsive}
             
             >
                 {
                     movies.map(movie => (
-                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="banner" />
+                        <StyledBanner src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="banner" />
                     ))
                 }
 
