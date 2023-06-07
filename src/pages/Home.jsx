@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 //components
 import Header from "../components/common/Header";
-import { categoryMovies } from "../services/api";
+import { getCategoryMovies } from "../services/api";
 import { NOWPLAYING_API_URL } from "../constants/constant";
 import { Box } from "@mui/material";
 import Banner from "../components/Banner";
@@ -25,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     const getData = async () => {
-      let response = await categoryMovies(NOWPLAYING_API_URL);
+      let response = await getCategoryMovies(NOWPLAYING_API_URL);
       setMovies(response.results);
     };
     getData();
