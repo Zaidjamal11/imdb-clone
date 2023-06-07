@@ -4,7 +4,7 @@ import Header from'../components/common/Header';
 
 import { Box, Typography, styled , Divider} from '@mui/material';
 import Carousel from 'react-multi-carousel';
-
+import MoviesList from '../components/MoviesList';
 
 import { getCategoryMovies } from '../services/api';
 
@@ -37,6 +37,11 @@ const responsive = {
      height: 450,
      width: '100%'
   })
+
+  const Container = styled(Box)`
+   background: #F5F5F5;
+   padding: 10px;
+  `
 
   const CategoryMovies = ({API_URL}) => {
     
@@ -88,13 +93,14 @@ const responsive = {
           </>
         ))}
       </Carousel>
-      <Box>
-        <Typography> IMDb Charts</Typography>
-        <Typography>IMDB {moviesType[search.split('=')[1]]} Movies</Typography>
-        <Typography>IMDb Top {movies.length} as rated by regular IMBb voters. </Typography>
+      <Container>
+        <Typography variant='h6'> IMDb Charts</Typography>
+        <Typography variant='h6'>IMDb {moviesType[search.split('=')[1]]} Movies</Typography>
+        <Typography style={{ fontSize: 12, margin: '5px'}}>IMDb Top {movies.length} as rated by regular IMBb voters. </Typography>
 
         <Divider />
-      </Box>
+        <MoviesList movies={movies} />
+      </Container>
         </Component>
         
         </>

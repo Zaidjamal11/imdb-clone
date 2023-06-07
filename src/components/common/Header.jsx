@@ -3,6 +3,8 @@ import { useState } from 'react';
 import {AppBar, Toolbar, styled, Box, Typography, InputBase} from '@mui/material';
 
 import { Menu, BookmarkAdd, ExpandMore } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import { routePath } from '../../constants/route';
 
 
 import { logoURL } from '../../constants/constant';
@@ -54,6 +56,8 @@ const Header = () => {
 
     const [open, setOpen] = useState(null);
 
+    const navigate = useNavigate();
+
     const handleClick = (e) => {
         setOpen(e.currentTarget)
     }
@@ -65,7 +69,7 @@ const Header = () => {
     return (
         <AppBar position='static'>
             <StyledToolbar>
-                <Logo src={logoURL} alt='logo' />
+                <Logo src={logoURL} alt='logo' onClick={() => navigate(routePath.home)} />
                 <Box onClick={handleClick}>
                     <Menu />
                     <Typography>Menu</Typography>
