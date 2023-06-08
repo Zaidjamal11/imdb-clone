@@ -1,4 +1,5 @@
-                                                       **Technologies Used**
+                                              **Technologies Used**
+                                              
 
 **React:**  A JavaScript library for building user interfaces
 
@@ -20,9 +21,11 @@
     
     
 2: Change into the project directory:
+
     cd imdb-clone
 
 3: Install the dependencies:
+
     npm install
 
 4: Create a .env file in the project root directory and add the following environment variables:
